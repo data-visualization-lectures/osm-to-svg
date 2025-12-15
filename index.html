@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OSM to SVG エクスポーター</title>
+</head>
+
+<body>
+  <div id="app">
+    <div id="sidebar">
+      <h1>OSM to SVG</h1>
+      <p class="description">1. 地図上で範囲を選択し、「地図データを取得」ボタンを押してください。</p>
+      <p class="description">2. 線画が表示された後、任意でGeoJSON/CSVを追加できます。</p>
+      <p class="description">3. 完成したSVGをダウンロードしてください。</p>
+      <div class="controls">
+        <div class="input-group hidden">
+          <label for="file-upload" class="label">重ね合わせ (GeoJSON/CSV)</label>
+          <input type="file" id="file-upload" accept=".json,.geojson,.csv" />
+        </div>
+
+        <button id="btn-fetch" class="primary-btn">地図データを取得してプレビュー</button>
+
+        <div id="result-actions" class="hidden column-gap">
+          <button id="btn-download" class="primary-btn">SVGをダウンロード</button>
+          <button id="btn-reselect" class="secondary-btn">範囲を選択し直す</button>
+        </div>
+
+        <div id="status-message" class="status">準備完了</div>
+      </div>
+    </div>
+    <div id="main-content">
+      <div id="map-container"></div>
+      <div id="svg-viewer" class="view-layer hidden"></div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
